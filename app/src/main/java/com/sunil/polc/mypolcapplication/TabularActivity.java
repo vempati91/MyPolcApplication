@@ -27,7 +27,7 @@ public class TabularActivity  extends AppCompatActivity {
     @BindView(R.id.txt_result)
     TextView mResultTextView;
 
-    int[][] data=null;
+    int[][] data=null;//data
     PolcHelper polcHelper=null;
 
     private Unbinder mUnbinder;
