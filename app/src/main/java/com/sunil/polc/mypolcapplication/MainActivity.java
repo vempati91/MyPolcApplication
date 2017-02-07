@@ -9,11 +9,20 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.sunil.polc.mypolcapplication.app.AppConstants;
+import com.sunil.polc.mypolcapplication.biz.PolcHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
+
+        //AppConstants appConstants;
+PolcHelper polcHelper;
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

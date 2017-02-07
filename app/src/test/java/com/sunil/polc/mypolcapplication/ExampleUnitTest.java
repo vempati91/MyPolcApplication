@@ -1,5 +1,8 @@
 package com.sunil.polc.mypolcapplication;
 
+import com.sunil.polc.mypolcapplication.app.AppConstants;
+import com.sunil.polc.mypolcapplication.biz.PolcHelper;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,8 +13,28 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+    private int[][] data2x5=new int[][]
+                    {
+                            {1,2,3,4,5},
+                            {3,4,5,6,7}
+                    };
+
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
+    }
+
+    @Test
+    public void initializeNullArrayAndValidateRowsAndColumnCount() throws Exception {
+        PolcHelper polcHelper=new PolcHelper(null);
+        assertEquals(AppConstants.MIN_COLUMNS_COUNT, polcHelper.getColumnsCount());
+        assertEquals(AppConstants.MIN_ROWS_COUNT, polcHelper.getRowCount());
+    }
+
+    @Test
+    public void arrayAndValidateRowsAndColumnCount() throws Exception {
+        PolcHelper polcHelper=new PolcHelper(data2x5);
+        assertEquals(5, polcHelper.getColumnsCount());
+        assertEquals(2, polcHelper.getRowCount());
     }
 }
