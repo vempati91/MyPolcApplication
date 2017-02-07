@@ -89,7 +89,7 @@ public class PolcHelper {
             rowPoint = findNextStepRowIndex(rowIndex, columnIndex);
             rowIndex=rowPoint.getRowIndex();
             columnIndex=rowPoint.getColumnIndex();
-        }while(columnIndex!=startColumnIndex /* || !pathData.isGameOver()*/);
+        }while(columnIndex!=startColumnIndex);
 
         if(columnIndex==startColumnIndex && !pathData.isGameOver()){
             isGridCrossSuccessful=true;

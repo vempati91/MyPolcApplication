@@ -9,34 +9,15 @@ import java.util.List;
  */
 public class PathData {
 
-    //private int _rowSize;
-    //private int _columnSize;
     private int _maxLimit;
-   // private int startRowIndex,startColumnIndex=-1;
 
-    public  PathData(/*int rowSize, int columnSize,int rowIndex,int columnIndex,*/int maxLimit){
-      //  _rowSize=rowSize;
-       // _columnSize=columnSize;
-        //startRowIndex=rowIndex;
-        //startColumnIndex=columnIndex;
+    public  PathData(int maxLimit){
         _maxLimit=maxLimit;
-        //addtoPath(startRowIndex,columnIndex);
     }
     private List<Integer> sequenceRowIds = new ArrayList<Integer>();
-/*
-    public void setStartValues(int rowIndex,int columnIndex){
-        startRowIndex=rowIndex;
-        startColumnIndex=columnIndex;
-        //sequenceRowIds.add(rowIndex+1);
-        //addtoPath(rowIndex);
-    }
-*/
+
     public void addtoPath(int rowIndex,int columnIndex){
-        //boolean isReachedGoal=false;
         sequenceRowIds.add(rowIndex+1);
-        //if(rowIndex==startRowIndex && columnIndex== startColumnIndex)
-          //  isReachedGoal=true;
-        //return isReachedGoal;
     }
 
     public List<Integer> getStepSequenceList(){
@@ -66,11 +47,11 @@ public class PathData {
 
     public String getStepSequence() {
         StringBuilder sb=new StringBuilder();
-        sb.append("Rows:");
+        //sb.append("Rows:");
         for (Integer rowId:sequenceRowIds ) {
             sb.append(rowId+" ");
         }
-        sb.append("\nTotal Cost:"+totalPathCost);
+        //sb.append("\nTotal Cost:"+totalPathCost);
 
         return sb.toString();
     }

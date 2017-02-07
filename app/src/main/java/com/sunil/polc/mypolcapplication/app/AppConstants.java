@@ -23,6 +23,15 @@ public final class AppConstants {
                     {3,7,2,8,6,4}
             };
 
+    public static int[][] Border_LastColumn_Entry_Crossing_Limit5x6=new int[][]
+            {
+                    {8,7,9,9,8,7,9},
+                    {6,8,8,7,7,8,8},
+                    {5,9,7,9,8,7,7},
+                    {8,8,8,7,9,9,8},
+                    {3,7,9,8,7,8,9}
+            };
+
 }
 
 
