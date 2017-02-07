@@ -39,7 +39,7 @@ public class PathData {
         //return isReachedGoal;
     }
 
-    public List<Integer> getStepSequence(){
+    public List<Integer> getStepSequenceList(){
         return sequenceRowIds;
     }
 
@@ -47,8 +47,8 @@ public class PathData {
 
     public void addPathCost(int rowIndex,int columnIndex,int additionalCost) {
         totalPathCost=totalPathCost+additionalCost;
-        addtoPath(rowIndex,columnIndex);
-       // return totalPathCost;//isGameOver();
+        if(!isGameOver())
+            addtoPath(rowIndex,columnIndex);
     }
 
     public boolean isGameOver(){
@@ -64,7 +64,16 @@ public class PathData {
         return totalPathCost;
     }
 
+    public String getStepSequence() {
+        StringBuilder sb=new StringBuilder();
+        sb.append("Rows:");
+        for (Integer rowId:sequenceRowIds ) {
+            sb.append(rowId+" ");
+        }
+        sb.append("\nTotal Cost:"+totalPathCost);
 
+        return sb.toString();
+    }
     public void printStepSequence() {
         for (Integer rowId:sequenceRowIds ) {
             System.out.println("Row:"+rowId);
