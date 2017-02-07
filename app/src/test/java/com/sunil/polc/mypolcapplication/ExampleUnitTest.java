@@ -19,6 +19,8 @@ public class ExampleUnitTest {
                             {3,4,5,6,7}
                     };
 
+    private int[][] data100x101=new int[100][101];
+
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
@@ -32,9 +34,15 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void arrayAndValidateRowsAndColumnCount() throws Exception {
+    public void arrayWithValidDataValidateRowsAndColumnCount() throws Exception {
         PolcHelper polcHelper=new PolcHelper(data2x5);
         assertEquals(5, polcHelper.getColumnsCount());
         assertEquals(2, polcHelper.getRowCount());
+    }
+    @Test
+    public void arrayWithInValidRowsAndColumnCount() throws Exception {
+        PolcHelper polcHelper=new PolcHelper(data100x101);
+        assertEquals(AppConstants.MIN_COLUMNS_COUNT, polcHelper.getColumnsCount());
+        assertEquals(AppConstants.MIN_ROWS_COUNT, polcHelper.getRowCount());
     }
 }
