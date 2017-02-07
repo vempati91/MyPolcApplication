@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MyPolcApplication</string>
     <string name="action_settings">Settings</string>
+    <string name="calculate">Calculate</string>
+    <string name="result">Result</string>
+    <string name="polc">Path of Least Count</string>
 </resources>
