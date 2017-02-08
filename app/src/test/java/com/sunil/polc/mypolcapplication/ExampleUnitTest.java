@@ -28,22 +28,11 @@ public class ExampleUnitTest {
                             {3,4,5,6,7}
                     };
 
-    public int[][] valid_data5x6=new int[][]
-            {
-                    {3,4,1,2,8,6},
-                    {6,1,8,2,7,4},
-                    {5,9,3,9,9,5},
-                    {8,4,1,3,2,6},
-                    {3,7,2,8,6,4}
-            };
-    private int[][] Border_LastColumn_Entry_Crossing_Limit5x6=new int[][]
-            {
-                    {8,7,9,9,8,7,9},
-                    {6,8,8,7,7,8,8},
-                    {5,9,7,9,8,7,7},
-                    {8,8,8,7,9,9,8},
-                    {3,7,9,8,7,8,9}
-            };
+
+    private int[][] valid_data10x10=AppConstants.valid_data10x10;
+    private int[][] valid_data5x6=AppConstants.valid_data5x6;
+    private int[][] Border_LastColumn_Entry_Crossing_Limit5x6=AppConstants.Border_LastColumn_Entry_Crossing_Limit5x6;
+
 
     private int[][] invalid_data100x101=new int[100][101];
 
@@ -60,6 +49,7 @@ public class ExampleUnitTest {
         assertEquals(2, polcHelper.getRowCount());
         assertEquals(5, polcHelper.getColumnsCount());
     }
+
     @Test
     public void arrayWithInValidRowsAndColumnCount() throws Exception {
         PolcHelper polcHelper=new PolcHelper(invalid_data100x101);
@@ -77,6 +67,14 @@ public class ExampleUnitTest {
 
 
     @Test
+    public void calculate10x10y() throws Exception {
+        PolcHelper polcHelper=new PolcHelper(valid_data10x10);
+        polcHelper.calculatePathOfLowCostRoute();
+        polcHelper.getPathData().printStepSequence();
+        assertTrue(AppConstants.MAX_ALLOWED_PATH_COST>polcHelper.getPathData().getTotalPathCost());
+    }
+
+    @Test
     public void testAdjacentBigData() throws Exception {
         PolcHelper polcHelper=new PolcHelper(Big_invalid_data2x5);
         polcHelper.calculatePathOfLowCostRoute();
@@ -90,5 +88,13 @@ public class ExampleUnitTest {
         polcHelper.calculatePathOfLowCostRoute();
         polcHelper.getPathData().printStepSequence();
         assertTrue(AppConstants.MAX_ALLOWED_PATH_COST<polcHelper.getPathData().getTotalPathCost());
+    }
+
+    @Test
+    public void calculateRoute4NegativeEntries() throws Exception {
+        PolcHelper polcHelper=new PolcHelper(AppConstants.NegativeValues5x6);
+        polcHelper.calculatePathOfLowCostRoute();
+        polcHelper.getPathData().printStepSequence();
+        assertTrue(AppConstants.MAX_ALLOWED_PATH_COST>polcHelper.getPathData().getTotalPathCost());
     }
 }

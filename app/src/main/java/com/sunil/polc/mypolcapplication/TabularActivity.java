@@ -42,8 +42,9 @@ public class TabularActivity  extends AppCompatActivity {
     }
 
     private void initializeData(){
-        data = AppConstants.valid_data5x6;
+        //data = AppConstants.valid_data5x6;
         //data=AppConstants.Border_LastColumn_Entry_Crossing_Limit5x6;
+        data = AppConstants.valid_data10x10;
 
 
         polcHelper=new PolcHelper(data);
